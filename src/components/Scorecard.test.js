@@ -3,7 +3,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Scorecard from "./Scorecard";
-import classes from "./ScorecardSpace.module.css";
+import spaceClasses from "./ScorecardSpace.module.css";
+import boxClasses from "./ScorecardPenaltyBox.module.css";
 
 test("renders without errors", () => {
   expect(render(<Scorecard />)).toBeTruthy();
@@ -15,10 +16,10 @@ test("marks a space in the correct row after it is clicked", () => {
 
   userEvent.click(spacesArray[1]);
 
-  expect(spacesArray[0]).not.toHaveClass(classes.marked);
-  expect(spacesArray[1]).toHaveClass(classes.marked);
-  expect(spacesArray[2]).not.toHaveClass(classes.marked);
-  expect(spacesArray[3]).not.toHaveClass(classes.marked);
+  expect(spacesArray[0]).not.toHaveClass(spaceClasses.marked);
+  expect(spacesArray[1]).toHaveClass(spaceClasses.marked);
+  expect(spacesArray[2]).not.toHaveClass(spaceClasses.marked);
+  expect(spacesArray[3]).not.toHaveClass(spaceClasses.marked);
 });
 
 test("marks multiple spaces in different rows after they are clicked", () => {
@@ -29,14 +30,14 @@ test("marks multiple spaces in different rows after they are clicked", () => {
   userEvent.click(space3Array[1]);
   userEvent.click(space11Array[2]);
 
-  expect(space3Array[0]).not.toHaveClass(classes.marked);
-  expect(space3Array[1]).toHaveClass(classes.marked);
-  expect(space3Array[2]).not.toHaveClass(classes.marked);
-  expect(space3Array[3]).not.toHaveClass(classes.marked);
-  expect(space11Array[0]).not.toHaveClass(classes.marked);
-  expect(space11Array[1]).not.toHaveClass(classes.marked);
-  expect(space11Array[2]).toHaveClass(classes.marked);
-  expect(space11Array[3]).not.toHaveClass(classes.marked);
+  expect(space3Array[0]).not.toHaveClass(spaceClasses.marked);
+  expect(space3Array[1]).toHaveClass(spaceClasses.marked);
+  expect(space3Array[2]).not.toHaveClass(spaceClasses.marked);
+  expect(space3Array[3]).not.toHaveClass(spaceClasses.marked);
+  expect(space11Array[0]).not.toHaveClass(spaceClasses.marked);
+  expect(space11Array[1]).not.toHaveClass(spaceClasses.marked);
+  expect(space11Array[2]).toHaveClass(spaceClasses.marked);
+  expect(space11Array[3]).not.toHaveClass(spaceClasses.marked);
 });
 
 test("marks multiple spaces with the same number after they are clicked", () => {
@@ -46,10 +47,10 @@ test("marks multiple spaces with the same number after they are clicked", () => 
   userEvent.click(spacesArray[0]);
   userEvent.click(spacesArray[2]);
 
-  expect(spacesArray[0]).toHaveClass(classes.marked);
-  expect(spacesArray[1]).not.toHaveClass(classes.marked);
-  expect(spacesArray[2]).toHaveClass(classes.marked);
-  expect(spacesArray[3]).not.toHaveClass(classes.marked);
+  expect(spacesArray[0]).toHaveClass(spaceClasses.marked);
+  expect(spacesArray[1]).not.toHaveClass(spaceClasses.marked);
+  expect(spacesArray[2]).toHaveClass(spaceClasses.marked);
+  expect(spacesArray[3]).not.toHaveClass(spaceClasses.marked);
 });
 
 test("locks multiple locks in different rows after they are clicked", () => {
@@ -63,4 +64,17 @@ test("locks multiple locks in different rows after they are clicked", () => {
   expect(locksArray[1]).toHaveStyle("color: black");
   expect(locksArray[2]).not.toHaveStyle("color: black");
   expect(locksArray[3]).toHaveStyle("color: black");
+});
+
+test("marks multiple penalty boxes after they are clicked", () => {
+  render(<Scorecard />);
+  const boxesArray = screen.getAllByLabelText(/penalty box/);
+
+  userEvent.click(boxesArray[0]);
+  userEvent.click(boxesArray[3]);
+
+  expect(boxesArray[0]).toHaveClass(boxClasses.marked);
+  expect(boxesArray[1]).not.toHaveClass(boxClasses.marked);
+  expect(boxesArray[2]).not.toHaveClass(boxClasses.marked);
+  expect(boxesArray[3]).toHaveClass(boxClasses.marked);
 });

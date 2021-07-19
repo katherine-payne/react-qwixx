@@ -1,0 +1,19 @@
+.ScorecardPenaltyBox {
+  position: relative;
+  background-color: white;
+  box-sizing: border-box;
+  border: 0.5vh solid darkgray;
+  border-radius: 15%;
+  width: 6vh;
+  height: 6vh;
+  margin: 0.5vh;
+}
+
+.marked::before {
+  position: absolute;
+  top: -73%;
+  left: -3%;
+  content: "\d7";
+  color: red;
+  font-size: calc(5px + 8vh);
+}
