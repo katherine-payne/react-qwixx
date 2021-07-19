@@ -51,3 +51,16 @@ test("marks multiple spaces with the same number after they are clicked", () => 
   expect(spacesArray[2]).toHaveClass(classes.marked);
   expect(spacesArray[3]).not.toHaveClass(classes.marked);
 });
+
+test("locks multiple locks in different rows after they are clicked", () => {
+  render(<Scorecard />);
+  const locksArray = screen.getAllByLabelText(/lock/);
+
+  userEvent.click(locksArray[1]);
+  userEvent.click(locksArray[3]);
+
+  expect(locksArray[0]).not.toHaveStyle("color: black");
+  expect(locksArray[1]).toHaveStyle("color: black");
+  expect(locksArray[2]).not.toHaveStyle("color: black");
+  expect(locksArray[3]).toHaveStyle("color: black");
+});

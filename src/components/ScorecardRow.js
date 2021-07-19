@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import classes from "./ScorecardRow.module.css";
 import ScorecardSpace from "./ScorecardSpace";
+import ScorecardLock from "./ScorecardLock";
 
 const ScorecardRow = (props) => {
   return (
@@ -13,6 +14,7 @@ const ScorecardRow = (props) => {
       {props.numbers.map((num) => (
         <ScorecardSpace color={props.color} number={num} key={num} />
       ))}
+      <ScorecardLock color={props.color} />
     </div>
   );
 };
