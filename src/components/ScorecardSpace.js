@@ -7,7 +7,10 @@ const ScorecardSpace = (props) => {
   const [marked, setMarked] = useState(false);
 
   const markSpace = () => {
-    setMarked(true);
+    if (!marked) {
+      setMarked(true);
+      props.onMarkSpace();
+    }
   };
 
   const spaceClasses = `${classes.ScorecardSpace} ${
@@ -28,6 +31,7 @@ const ScorecardSpace = (props) => {
 ScorecardSpace.propTypes = {
   color: PropTypes.string,
   number: PropTypes.number,
+  onMarkSpace: PropTypes.func,
 };
 
 export default ScorecardSpace;
