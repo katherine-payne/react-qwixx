@@ -7,9 +7,9 @@ const ScorecardSpace = (props) => {
   const [marked, setMarked] = useState(false);
 
   const markSpace = () => {
-    if (!marked) {
+    if (props.enabled && !marked) {
       setMarked(true);
-      props.onMarkSpace();
+      props.onMarkSpace(props.number);
     }
   };
 
@@ -32,6 +32,7 @@ ScorecardSpace.propTypes = {
   color: PropTypes.string,
   number: PropTypes.number,
   onMarkSpace: PropTypes.func,
+  enabled: PropTypes.bool,
 };
 
 export default ScorecardSpace;

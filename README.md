@@ -1,6 +1,6 @@
 # React Qwixx
 
-Scorecard for the dice game Qwixx, built with React.
+Scorecard for the dice game Qwixx, built with React. Enforces game rules and automatically calculates score.
 
 ## Setup
 

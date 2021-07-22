@@ -9,7 +9,7 @@ const ScorecardLock = (props) => {
   const [locked, setLocked] = useState(false);
 
   const lockSpace = () => {
-    if (!locked) {
+    if (props.enabled && !locked) {
       setLocked(true);
       props.onLockSpace();
     }
@@ -33,6 +33,7 @@ const ScorecardLock = (props) => {
 ScorecardLock.propTypes = {
   color: PropTypes.string,
   onLockSpace: PropTypes.func,
+  enabled: PropTypes.bool,
 };
 
 export default ScorecardLock;

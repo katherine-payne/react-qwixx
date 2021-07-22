@@ -55,14 +55,33 @@ test("marks multiple spaces with the same number after they are clicked", () => 
 
 test("locks multiple locks in different rows after they are clicked", () => {
   render(<Scorecard />);
+  const space12Array = screen.getAllByText("12");
+  const space11Array = screen.getAllByText("11");
+  const space10Array = screen.getAllByText("10");
+  const space9Array = screen.getAllByText("9");
+  const space8Array = screen.getAllByText("8");
+  const space2Array = screen.getAllByText("2");
   const locksArray = screen.getAllByLabelText(/lock/);
 
-  userEvent.click(locksArray[1]);
+  userEvent.click(space12Array[2]);
+  userEvent.click(space11Array[2]);
+  userEvent.click(space10Array[2]);
+  userEvent.click(space9Array[2]);
+  userEvent.click(space8Array[2]);
+  userEvent.click(space2Array[2]);
+  userEvent.click(locksArray[2]);
+
+  userEvent.click(space12Array[3]);
+  userEvent.click(space11Array[3]);
+  userEvent.click(space10Array[3]);
+  userEvent.click(space9Array[3]);
+  userEvent.click(space8Array[3]);
+  userEvent.click(space2Array[3]);
   userEvent.click(locksArray[3]);
 
   expect(locksArray[0]).not.toHaveStyle("color: black");
-  expect(locksArray[1]).toHaveStyle("color: black");
-  expect(locksArray[2]).not.toHaveStyle("color: black");
+  expect(locksArray[1]).not.toHaveStyle("color: black");
+  expect(locksArray[2]).toHaveStyle("color: black");
   expect(locksArray[3]).toHaveStyle("color: black");
 });
 
@@ -108,16 +127,29 @@ test("updates totals correctly after a space is clicked", () => {
 test("updates totals correctly after a lock is clicked", () => {
   render(<Scorecard />);
 
+  const space2Array = screen.getAllByText("2");
+  const space3Array = screen.getAllByText("3");
+  const space4Array = screen.getAllByText("4");
+  const space5Array = screen.getAllByText("5");
+  const space6Array = screen.getAllByText("6");
+  const space12Array = screen.getAllByText("12");
   const locksArray = screen.getAllByLabelText(/lock/);
+
+  userEvent.click(space2Array[1]);
+  userEvent.click(space3Array[1]);
+  userEvent.click(space4Array[1]);
+  userEvent.click(space5Array[1]);
+  userEvent.click(space6Array[1]);
+  userEvent.click(space12Array[1]);
   userEvent.click(locksArray[1]);
   const calcScoreButton = screen.getByText("Calculate Score");
   userEvent.click(calcScoreButton);
 
   const total0Boxes = screen.getAllByText("0");
-  const total1Boxes = screen.getAllByText("1");
+  const total28Boxes = screen.getAllByText("28");
 
   expect(total0Boxes).toHaveLength(4);
-  expect(total1Boxes).toHaveLength(2);
+  expect(total28Boxes).toHaveLength(2);
 });
 
 test("updates totals correctly after a penalty box is clicked", () => {
@@ -137,6 +169,26 @@ test("updates totals correctly after a penalty box is clicked", () => {
   expect(total0Boxes).toHaveLength(4);
   expect(total15Boxes).toHaveLength(1);
   expect(totalMinus15Boxes).toHaveLength(1);
+});
+
+test("does not update totals when boxes that are not enabled are clicked", () => {
+  render(<Scorecard />);
+
+  const space6Array = screen.getAllByText("6");
+  const space5Array = screen.getAllByText("5");
+  const locksArray = screen.getAllByLabelText(/lock/);
+
+  userEvent.click(space6Array[0]);
+  userEvent.click(space5Array[0]);
+  userEvent.click(locksArray[0]);
+  const calcScoreButton = screen.getByText("Calculate Score");
+  userEvent.click(calcScoreButton);
+
+  const total0Boxes = screen.getAllByText("0");
+  const total1Boxes = screen.getAllByText("1");
+
+  expect(total0Boxes).toHaveLength(4);
+  expect(total1Boxes).toHaveLength(2);
 });
 
 test("shows correct totals when multiple boxes have been clicked", () => {
