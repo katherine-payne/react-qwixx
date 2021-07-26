@@ -1,0 +1,10 @@
+.ScorecardRow {
+  width: 100%;
+  padding: 1.5vh 0.75vh;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+}
