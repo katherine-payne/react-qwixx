@@ -14,6 +14,10 @@ To run tests in watch mode, use `npm test`.
 
 To build the app for production (in the `build` folder), use `npm run build`.
 
+## Gameplay
+
+Click to mark spaces, locks, and penalty boxes. Click "Calculate Score" button to show row scores and total.
+
 ## Acknowledgements
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
