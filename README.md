@@ -1,6 +1,6 @@
 # React Qwixx
 
-Scorecard for the dice game Qwixx, built with React.
+Scorecard for the dice game Qwixx, built with React. Enforces game rules and automatically calculates score.
 
 ## Setup
 
@@ -13,6 +13,10 @@ To start the app in development mode, run `npm start`. Open [http://localhost:30
 To run tests in watch mode, use `npm test`.
 
 To build the app for production (in the `build` folder), use `npm run build`.
+
+## Gameplay
+
+Click to mark spaces, locks, and penalty boxes. Click "Calculate Score" button to show row scores and total.
 
 ## Acknowledgements
 

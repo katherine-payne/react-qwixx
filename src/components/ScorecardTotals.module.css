@@ -1,0 +1,20 @@
+.ScorecardTotals {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.operators {
+  margin: 3vh 1vh 1vh;
+  font-size: 3vh;
+}
+
+button {
+  margin: 3vh 0vh 1vh;
+  background-color: gray;
+  border: 0px solid transparent;
+  border-radius: 15%;
+  font-size: 3.5vh;
+  flex: 1 1 0;
+}

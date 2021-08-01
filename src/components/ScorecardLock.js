@@ -9,7 +9,10 @@ const ScorecardLock = (props) => {
   const [locked, setLocked] = useState(false);
 
   const lockSpace = () => {
-    setLocked(true);
+    if (props.enabled && !locked) {
+      setLocked(true);
+      props.onLockSpace();
+    }
   };
 
   const lockColor = `${locked ? "black" : props.color}`;
@@ -29,6 +32,8 @@ const ScorecardLock = (props) => {
 
 ScorecardLock.propTypes = {
   color: PropTypes.string,
+  onLockSpace: PropTypes.func,
+  enabled: PropTypes.bool,
 };
 
 export default ScorecardLock;
