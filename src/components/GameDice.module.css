@@ -1,20 +1,17 @@
-.ScorecardTotals {
+.GameDice {
+  margin: auto;
+  width: 60%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.operators {
-  margin: 3vh 1vh 1vh;
-  font-size: 3vh;
-}
-
-.ScorecardTotals-button {
-  margin: 3vh 0vh 1vh;
+.GameDice-button {
+  margin: 0vh 2vh 4vh;
   background-color: gray;
   border: 0px solid transparent;
   border-radius: 15%;
-  font-size: 3.5vh;
+  font-size: calc(10px + 7vh);
   flex: 1 1 0;
 }
