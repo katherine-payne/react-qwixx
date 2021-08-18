@@ -65,7 +65,12 @@ const ScorecardTotals = (props) => {
           visible={scoreVisible}
         />
       ) : (
-        <button onClick={showScore}>Calculate Score</button>
+        <button
+          className={classes["ScorecardTotals-button"]}
+          onClick={showScore}
+        >
+          Calculate Score
+        </button>
       )}
     </div>
   );

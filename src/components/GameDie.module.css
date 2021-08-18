@@ -1,0 +1,11 @@
+.GameDie {
+  margin: 0vh 2vh 4vh;
+  font-size: calc(10px + 7vh);
+  border-radius: 15%;
+  flex: 1 1 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

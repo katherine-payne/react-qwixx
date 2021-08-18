@@ -7,11 +7,76 @@ import spaceClasses from "./ScorecardSpace.module.css";
 import boxClasses from "./ScorecardPenaltyBox.module.css";
 
 test("renders without errors", () => {
-  expect(render(<Scorecard />)).toBeTruthy();
+  expect(
+    render(
+      <Scorecard
+        backgroundColors={["red", "yellow", "lime", "blue"]}
+        colors={["darkred", "gold", "green", "mediumblue"]}
+      />
+    )
+  ).toBeTruthy();
+});
+
+test("renders rows of the correct color", () => {
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
+  const space6Array = screen.getAllByText("6");
+
+  expect(space6Array[0]).toHaveStyle("color: darkred");
+  expect(space6Array[1]).toHaveStyle("color: gold");
+  expect(space6Array[2]).toHaveStyle("color: green");
+  expect(space6Array[3]).toHaveStyle("color: mediumblue");
+});
+
+test("renders total boxes of the correct background color", () => {
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
+
+  const calcScoreButton = screen.getByText("Calculate Score");
+  userEvent.click(calcScoreButton);
+
+  const total0Boxes = screen.getAllByText("0");
+
+  expect(total0Boxes[0]).toHaveStyle("backgroundColor: red");
+  expect(total0Boxes[1]).toHaveStyle("backgroundColor: yellow");
+  expect(total0Boxes[2]).toHaveStyle("backgroundColor: lime");
+  expect(total0Boxes[3]).toHaveStyle("backgroundColor: blue");
+});
+
+test("renders total boxes of the correct border color", () => {
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
+
+  const calcScoreButton = screen.getByText("Calculate Score");
+  userEvent.click(calcScoreButton);
+
+  const total0Boxes = screen.getAllByText("0");
+
+  expect(total0Boxes[0]).toHaveStyle("borderColor: darkred");
+  expect(total0Boxes[1]).toHaveStyle("borderColor: gold");
+  expect(total0Boxes[2]).toHaveStyle("borderColor: green");
+  expect(total0Boxes[3]).toHaveStyle("borderColor: mediumblue");
 });
 
 test("marks a space in the correct row after it is clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
   const spacesArray = screen.getAllByText("2");
 
   userEvent.click(spacesArray[1]);
@@ -23,7 +88,12 @@ test("marks a space in the correct row after it is clicked", () => {
 });
 
 test("marks multiple spaces in different rows after they are clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
   const space3Array = screen.getAllByText("3");
   const space11Array = screen.getAllByText("11");
 
@@ -41,7 +111,12 @@ test("marks multiple spaces in different rows after they are clicked", () => {
 });
 
 test("marks multiple spaces with the same number after they are clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
   const spacesArray = screen.getAllByText("6");
 
   userEvent.click(spacesArray[0]);
@@ -54,7 +129,12 @@ test("marks multiple spaces with the same number after they are clicked", () => 
 });
 
 test("locks multiple locks in different rows after they are clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
   const space12Array = screen.getAllByText("12");
   const space11Array = screen.getAllByText("11");
   const space10Array = screen.getAllByText("10");
@@ -86,7 +166,12 @@ test("locks multiple locks in different rows after they are clicked", () => {
 });
 
 test("marks multiple penalty boxes after they are clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
   const boxesArray = screen.getAllByLabelText(/penalty box/);
 
   userEvent.click(boxesArray[0]);
@@ -99,7 +184,12 @@ test("marks multiple penalty boxes after they are clicked", () => {
 });
 
 test("shows correct totals when no boxes have been clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
 
   const calcScoreButton = screen.getByText("Calculate Score");
   userEvent.click(calcScoreButton);
@@ -110,7 +200,12 @@ test("shows correct totals when no boxes have been clicked", () => {
 });
 
 test("updates totals correctly after a space is clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
 
   const spacesArray = screen.getAllByText("6");
   userEvent.click(spacesArray[0]);
@@ -125,7 +220,12 @@ test("updates totals correctly after a space is clicked", () => {
 });
 
 test("updates totals correctly after a lock is clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
 
   const space2Array = screen.getAllByText("2");
   const space3Array = screen.getAllByText("3");
@@ -153,7 +253,12 @@ test("updates totals correctly after a lock is clicked", () => {
 });
 
 test("updates totals correctly after a penalty box is clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
 
   const boxesArray = screen.getAllByLabelText(/penalty box/);
   userEvent.click(boxesArray[0]);
@@ -172,7 +277,12 @@ test("updates totals correctly after a penalty box is clicked", () => {
 });
 
 test("does not update totals when boxes that are not enabled are clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
 
   const space6Array = screen.getAllByText("6");
   const space5Array = screen.getAllByText("5");
@@ -192,7 +302,12 @@ test("does not update totals when boxes that are not enabled are clicked", () =>
 });
 
 test("shows correct totals when multiple boxes have been clicked", () => {
-  render(<Scorecard />);
+  render(
+    <Scorecard
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
 
   const space2Array = screen.getAllByText("2");
   const space3Array = screen.getAllByText("3");
