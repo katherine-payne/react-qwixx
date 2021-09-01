@@ -8,7 +8,7 @@ const GameDice = (props) => {
   const generateNewRoll = () => {
     const newNumbers = [];
     for (let i = 0; i < 6; i++) {
-      newNumbers.push(Math.floor(Math.random() * 6 + 1));
+      newNumbers.push(Math.floor(Math.random() * props.maxRoll + 1));
     }
     return newNumbers;
   };
@@ -59,6 +59,7 @@ const GameDice = (props) => {
 };
 
 GameDice.propTypes = {
+  maxRoll: PropTypes.number,
   backgroundColors: PropTypes.arrayOf(PropTypes.string),
   textColors: PropTypes.arrayOf(PropTypes.string),
 };

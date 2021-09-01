@@ -1,6 +1,5 @@
 .ScorecardLock {
   margin: 0vh 0.75vh;
-  font-size: calc(10px + 6vh);
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 50%;
   flex: 1 1 0;

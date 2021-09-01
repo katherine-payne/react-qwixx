@@ -1,13 +1,11 @@
 .Scorecard {
   margin: auto;
-  width: 85%;
   padding: 2vh;
   background-color: lightgray;
   border-radius: 2%;
 }
 
 .ScorecardRows {
-  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +24,7 @@
   margin-top: 1vh;
   margin-bottom: 1vh;
   margin-left: auto;
-  margin-right: 6vh;
+  margin-right: 5vh;
   width: fit-content;
-  font-size: 3vh;
+  font-size: 2.5vh;
 }
