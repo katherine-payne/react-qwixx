@@ -6,15 +6,16 @@
 }
 
 .operators {
-  margin: 3vh 1vh 1vh;
+  margin: 2vh 1vh 1vh;
   font-size: 3vh;
 }
 
 .ScorecardTotals-button {
-  margin: 3vh 0vh 1vh;
+  margin: 2vh 0vh 1vh;
   background-color: gray;
   border: 0px solid transparent;
   border-radius: 15%;
-  font-size: 3.5vh;
+  font-size: 2.75vh;
+  min-height: 6vh;
   flex: 1 1 0;
 }

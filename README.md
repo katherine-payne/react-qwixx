@@ -1,6 +1,6 @@
 # React Qwixx
 
-Scorecard and dice for the game Qwixx, built with React. Rolls dice randomly, enforces game rules, and automatically calculates score.
+Scorecard and dice for the game Qwixx, built with React. Rolls dice randomly, enforces game rules, and automatically calculates score. Allows user to select type of dice used and colors of scorecard rows.
 
 ## Setup
 
@@ -16,7 +16,11 @@ To build the app for production (in the `build` folder), use `npm run build`.
 
 ## Gameplay
 
+Use the select menu and color pickers to choose dice type and row colors. (Keep in mind that especially light colors may be difficult to read, and colors that are too similar to each other may be confusing.) To begin the game, press the "Start Game" button.
+
 Click "Roll" button to roll dice. Click to mark spaces, locks, and penalty boxes. Click "Calculate Score" button to show row scores and total.
+
+Once the game has started, press the "New Game" button at any time to return to the customization form and start over.
 
 ## Acknowledgements
 

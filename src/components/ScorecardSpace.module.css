@@ -1,6 +1,5 @@
 .ScorecardSpace {
   margin: 0vh 0.75vh;
-  font-size: calc(10px + 7vh);
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 15%;
   flex: 1 1 0;
@@ -13,8 +12,9 @@
 
 .marked::before {
   position: absolute;
-  top: -73%;
-  content: "\d7";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00d";
   color: black;
-  font-size: calc(10px + 20vh);
+  font-size: calc(10px + 7vh);
 }

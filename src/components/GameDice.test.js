@@ -10,6 +10,7 @@ test("renders dice of the correct background colors", () => {
 
   render(
     <GameDice
+      maxRoll={6}
       backgroundColors={["white", "white", "red", "yellow", "green", "blue"]}
       textColors={["black", "black", "white", "white", "white", "white"]}
     />
@@ -33,6 +34,7 @@ test("renders dice of the correct text colors", () => {
 
   render(
     <GameDice
+      maxRoll={6}
       backgroundColors={["white", "white", "red", "yellow", "green", "blue"]}
       textColors={["black", "black", "white", "white", "white", "white"]}
     />
@@ -53,6 +55,7 @@ test("renders dice of the correct text colors", () => {
 test("assigns dice random values within the correct range", () => {
   render(
     <GameDice
+      maxRoll={6}
       backgroundColors={["white", "white", "red", "yellow", "green", "blue"]}
       textColors={["black", "black", "white", "white", "white", "white"]}
     />
@@ -72,6 +75,7 @@ test("assigns dice random values within the correct range", () => {
 test("assigns dice values within correct range when roll button is clicked", () => {
   render(
     <GameDice
+      maxRoll={6}
       backgroundColors={["white", "white", "red", "yellow", "green", "blue"]}
       textColors={["black", "black", "white", "white", "white", "white"]}
     />
@@ -82,6 +86,26 @@ test("assigns dice values within correct range when roll button is clicked", () 
   userEvent.click(rollButton);
 
   for (let i = 1; i <= 6; i++) {
+    const dice = screen.queryAllByText(i);
+    if (dice) {
+      numDice += dice.length;
+    }
+  }
+
+  expect(numDice).toBe(6);
+});
+
+test("assigns dice values within correct range for different max roll", () => {
+  render(
+    <GameDice
+      maxRoll={10}
+      backgroundColors={["white", "white", "red", "yellow", "green", "blue"]}
+      textColors={["black", "black", "white", "white", "white", "white"]}
+    />
+  );
+  let numDice = 0;
+
+  for (let i = 1; i <= 10; i++) {
     const dice = screen.queryAllByText(i);
     if (dice) {
       numDice += dice.length;

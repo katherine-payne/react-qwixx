@@ -1,0 +1,24 @@
+.StartForm-h2 {
+  font-size: calc(7px + 2vh);
+  color: white;
+}
+
+.StartForm-label {
+  margin: 0vh 1vh 0vh 0vh;
+  font-size: calc(4px + 2vh);
+  color: white;
+}
+
+.StartForm-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.StartForm-button {
+  margin: 4vh;
+  background-color: gray;
+  border: 0px solid transparent;
+  border-radius: 15%;
+  font-size: calc(7px + 2vh);
+}

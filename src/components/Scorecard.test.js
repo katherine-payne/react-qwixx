@@ -10,6 +10,7 @@ test("renders without errors", () => {
   expect(
     render(
       <Scorecard
+        diceType={6}
         backgroundColors={["red", "yellow", "lime", "blue"]}
         colors={["darkred", "gold", "green", "mediumblue"]}
       />
@@ -17,9 +18,35 @@ test("renders without errors", () => {
   ).toBeTruthy();
 });
 
+test("renders spaces for the correct dice type", () => {
+  render(
+    <Scorecard
+      diceType={4}
+      backgroundColors={["red", "yellow", "lime", "blue"]}
+      colors={["darkred", "gold", "green", "mediumblue"]}
+    />
+  );
+  const space2Array = screen.getAllByText("2");
+  const space3Array = screen.getAllByText("3");
+  const space4Array = screen.getAllByText("4");
+  const space5Array = screen.getAllByText("5");
+  const space6Array = screen.getAllByText("6");
+  const space7Array = screen.getAllByText("7");
+  const space8Array = screen.getAllByText("8");
+
+  expect(space2Array).toHaveLength(4);
+  expect(space3Array).toHaveLength(4);
+  expect(space4Array).toHaveLength(4);
+  expect(space5Array).toHaveLength(4);
+  expect(space6Array).toHaveLength(4);
+  expect(space7Array).toHaveLength(4);
+  expect(space8Array).toHaveLength(4);
+});
+
 test("renders rows of the correct color", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -35,6 +62,7 @@ test("renders rows of the correct color", () => {
 test("renders total boxes of the correct background color", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -54,6 +82,7 @@ test("renders total boxes of the correct background color", () => {
 test("renders total boxes of the correct border color", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -73,6 +102,7 @@ test("renders total boxes of the correct border color", () => {
 test("marks a space in the correct row after it is clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -90,6 +120,7 @@ test("marks a space in the correct row after it is clicked", () => {
 test("marks multiple spaces in different rows after they are clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -113,6 +144,7 @@ test("marks multiple spaces in different rows after they are clicked", () => {
 test("marks multiple spaces with the same number after they are clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -131,6 +163,7 @@ test("marks multiple spaces with the same number after they are clicked", () => 
 test("locks multiple locks in different rows after they are clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -168,6 +201,7 @@ test("locks multiple locks in different rows after they are clicked", () => {
 test("marks multiple penalty boxes after they are clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -186,6 +220,7 @@ test("marks multiple penalty boxes after they are clicked", () => {
 test("shows correct totals when no boxes have been clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -202,6 +237,7 @@ test("shows correct totals when no boxes have been clicked", () => {
 test("updates totals correctly after a space is clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -222,6 +258,7 @@ test("updates totals correctly after a space is clicked", () => {
 test("updates totals correctly after a lock is clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -255,6 +292,7 @@ test("updates totals correctly after a lock is clicked", () => {
 test("updates totals correctly after a penalty box is clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -279,6 +317,7 @@ test("updates totals correctly after a penalty box is clicked", () => {
 test("does not update totals when boxes that are not enabled are clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
@@ -304,6 +343,7 @@ test("does not update totals when boxes that are not enabled are clicked", () =>
 test("shows correct totals when multiple boxes have been clicked", () => {
   render(
     <Scorecard
+      diceType={6}
       backgroundColors={["red", "yellow", "lime", "blue"]}
       colors={["darkred", "gold", "green", "mediumblue"]}
     />
