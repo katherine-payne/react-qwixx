@@ -22,6 +22,13 @@ Click "Roll" button to roll dice. Click to mark spaces, locks, and penalty boxes
 
 Once the game has started, press the "New Game" button at any time to return to the customization form and start over.
 
+## Images
+
+![Start form with default options](screenshots/default-start-form.png)
+![New game with default options](screenshots/default-game-blank.png)
+![Start form with custom options](screenshots/custom-start-form.png)
+![Game with custom options in progress](screenshots/custom-game-in-progress.png)
+
 ## Acknowledgements
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
